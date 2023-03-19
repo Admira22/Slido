@@ -1,0 +1,40 @@
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.body{
+  background-color: #bdbbf1;
+}
+.footer{
+    padding-left: 600px;
+    font-size: 36px;
+    color: dodgerblue;
+}
+li {
+    display: inline-block;
+}
+
+
+.buttons{
+    margin-top: 10px;
+    display: inline-block;
+    float: right;
+    margin-right: 300px;
+
+}
+
+.action-btn {
+    width: 500px;
+    margin: 0 auto;
+}
+
+li {
+    display: inline-block;
+}
+#ff{
+    padding-left: 10px;
+    font-size: 30px;
+    color: dodgerblue;
+}

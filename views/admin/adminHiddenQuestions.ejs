@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel='stylesheet' href='/stylesheets/admin.css' />
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse visible-xs">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Logo</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/admin/home/:id">Admin</a></li>
+                <li><a href="/admin/users">Edit Users</a></li>
+                <li><a href="/admin/lectures">Edit Lectures</a></li>
+                <li><a href="/admin/questions">Edit list of questions</a></li>
+                <li><a href="/admin/hiddenQuestions">Edit list of hidden questions</a></li>
+                <li><a href="/admin/forbiddenWords">Edit list of forbidden words</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row content">
+        <div class="col-sm-3 sidenav hidden-xs">
+            <h2>ADMIN</h2>
+            <ul class="nav nav-pills nav-stacked">
+                <li class="active"><a href="/admin/home/:id">Admin</a></li>
+                <li><a href="/admin/users">Edit Users</a></li>
+                <li><a href="/admin/lectures">Edit Lectures</a></li>
+                <li><a href="/admin/questions">Edit list of questions</a></li>
+                <li><a href="/admin/hiddenQuestions">Edit list of hidden question</a></li>
+                <li><a href="/admin/forbiddenWords">Edit list of forbidden words</a></li>
+                <li> <a href="/admin/log-out">
+                        <span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+            </ul><br>
+        </div>
+        <br>
+
+        <div class="col-sm-9">
+            <div class="well">
+                <h2>Administrator's Dashboard</h2>
+            </div>
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="well">
+                        <h2>List of all hidden questions</h2>
+                        <table id="table">
+                            <tr id="head">
+                                <td>No.</td>
+                                <td>Question</td>
+                                <td>D</td>
+                            </tr>
+                            <%for (let i = 0; i < hiddenquestions.length; i++){%>
+                                <tr>
+                                    <td><%= hiddenquestions[i].id%></td>
+                                    <td><%= hiddenquestions[i].text%></td>
+                                    <td><a  href="/admin/hiddenQuestions/<%=hiddenquestions[i].id%>"
+                                            type="button" class="btn btn-danger">Delete</a></td>
+                                </tr>
+                            <%}%>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="container-fluid text-center">
+    <div id="ff">
+        <li  class="list-inline-item"><a href="https://www.instagram.com/"><i class="fab instagram footer-social-icon fa-instagram"></i></a></li>
+        <li class="list-inline-item"><a href="https://www.facebook.com/"><i class="fab facebook footer-social-icon fa-facebook"></i></a></li>
+        <li class="list-inline-item"><a href="https://www.linkedin.com/"><i class="fab linkedin footer-social-icon fa-linkedin"></i></a></li>
+        <li class="list-inline-item"><a href="https://github.com/"><i class="fab github footer-social-icon fa-github"></i></a></li>
+    </div>
+    <p> &#169 Copyright 2022</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Guest</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel='stylesheet' href='/stylesheets/teacher.css' />
+</head>
+<body>
+
+<nav class="navbar navbar-inverse visible-xs">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Slido(Guest)</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Back to home page</a></li>
+                <li><a href="/guest/questions/<%= code%>" >List of questions</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row content">
+        <div class="col-sm-3 sidenav hidden-xs">
+            <h2>Guest</h2>
+            <ul class="nav nav-pills nav-stacked">
+                <li class="active"><a href="/">Back to home page</a></li>
+                <li><a href="/guest/questions/<%= code%>" class="btn btn-info">List of questions</a></li>
+            </ul><br>
+        </div>
+        <br>
+        <div class="row-cols-sm-10">
+            <div class="col-sm-9">
+                <div class="well">
+                    <h2>QUESTIONS</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="row">
+                    <div class="col-sm-7">
+                        <div class="well">
+                            <div>
+                                <a  href="/guest/sorted-questions/<%= code%>" type="button"
+                                        class="btn btn-info">Sort by Like</a>
+                                <br>
+                                <br>
+                                <a  href="/guest/filter-5/<%= code%>" type="button"
+                                    class="btn btn-info">Filter 5</a>
+                                <a  href="/guest/filter-10/<%= code%>" type="button"
+                                    class="btn btn-info">Filter 10</a>
+                                <a  href="/guest/filter-15/<%= code%>" type="button"
+                                    class="btn btn-info">Filter 15</a>
+
+                                <h3>LIST OF QUESTIONS FOR LECTURE</h3>
+                                <table id="table">
+                                    <tr id="head">
+                                        <td>No.</td>
+                                        <td>Question</td>
+                                        <td>L</td>
+                                    </tr>
+                                    <%for (let i = 0; i < questions.length; i++){%>
+                                        <tr>
+                                            <td><%= questions[i].reaction%></td>
+                                            <td><%= questions[i].text%></td>
+
+                                            <td><a  href="" id="button"
+                                                    type="button" onclick="likeQuestion('<%= questions[i].id%>')" class="btn btn-success">Like</a></td>
+                                        </tr>
+                                    <%}%>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="well">
+                                    <form action="/guest/new-question/<%= code%>" method="post" class="login-box" autocomplete="on">
+                                        <div class="title">
+                                        </div>
+                                        <div class="input-box">
+                                            <input type="text" name="question" required class="input" id="question">
+                                            <label for="question">Enter a question</label>
+                                        </div>
+                                        <button type="submit">Ask question</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="container-fluid text-center">
+    <div id="ff">
+        <li  class="list-inline-item"><a href="https://www.instagram.com/"><i class="fab instagram footer-social-icon fa-instagram"></i></a></li>
+        <li class="list-inline-item"><a href="https://www.facebook.com/"><i class="fab facebook footer-social-icon fa-facebook"></i></a></li>
+        <li class="list-inline-item"><a href="https://www.linkedin.com/"><i class="fab linkedin footer-social-icon fa-linkedin"></i></a></li>
+        <li class="list-inline-item"><a href="https://github.com/"><i class="fab github footer-social-icon fa-github"></i></a></li>
+    </div>
+    <p> &#169 Copyright 2022</p>
+</footer>
+<script>
+    function likeQuestion(id){
+        //alert(id)
+        event.preventDefault();
+        $.ajax({
+            url: '/guest/like-question/'+id,
+            method: 'POST',
+            data: {},
+            success:function(result) {
+               // $('#button').prop('disabled',true)
+                //document.getElementById("button").disabled = true;
+                //$(`#proba`).prop('disabled',true)
+               // document.querySelector('#button').disabled = true;
+                const element = document.getElementById('button');
+                element.setAttribute('disabled', '');
+            }
+
+        })
+
+    }
+</script>
+</body>
+</html>

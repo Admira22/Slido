@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Guest</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel='stylesheet' href='/stylesheets/teacher.css' />
+</head>
+<body>
+
+<nav class="navbar navbar-inverse visible-xs">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Slido(Guest)</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="/guest/questions/<%= lecture.code%>" >List of questions</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row content">
+        <div class="col-sm-3 sidenav hidden-xs">
+            <h2>Guest</h2>
+            <ul class="nav nav-pills nav-stacked">
+                <li><a href="/guest/questions/<%=lecture.code%>" class="btn btn-info">List of questions</a></li>
+            </ul><br>
+        </div>
+        <br>
+        <div class="row-cols-sm-10">
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="well">
+                        <h2 style="color: #005c97;"><%= lecture.name%></h2>
+                        <h4 style="color: #005c97;">Introduction</h4>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+                        <img src="<%= cover.cover_url%>" width="500" height="300">
+                        <br>
+                        <h4 style="color: #005c97;">Main part</h4>
+                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet.", comes from a line in section 1.10.32.
+                            The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>
+                        <h4 style="color: #005c97;">Conclusion</h4>
+                        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                        <div class="container">
+                            <h4>Hope you're enjoyed the lecture</h4>
+                            <h4>Please rate</h4>
+                            <a  href="/guest/lecture-mark/<%= lecture.code%>/1" type=button" value = '1'
+                                class="btn btn-info">1</a>
+                            <a  href="/guest/lecture-mark/<%= lecture.code%>/2" type="submit" value = '2'
+                                class="btn btn-info">2</a>
+                            <a  href="/guest/lecture-mark/<%= lecture.code%>/3" type="submit" value = '3'
+                                class="btn btn-info">3</a>
+                            <a  href="/guest/lecture-mark/<%= lecture.code%>/4" type="submit" value = '4'
+                                class="btn btn-info">4</a>
+                            <a  href="/guest/lecture-mark/<%= lecture.code%>/5" type="button" value = '5'
+                                class="btn btn-info">5</a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="container-fluid text-center">
+    <div id="ff">
+        <li  class="list-inline-item"><a href="https://www.instagram.com/"><i class="fab instagram footer-social-icon fa-instagram"></i></a></li>
+        <li class="list-inline-item"><a href="https://www.facebook.com/"><i class="fab facebook footer-social-icon fa-facebook"></i></a></li>
+        <li class="list-inline-item"><a href="https://www.linkedin.com/"><i class="fab linkedin footer-social-icon fa-linkedin"></i></a></li>
+        <li class="list-inline-item"><a href="https://github.com/"><i class="fab github footer-social-icon fa-github"></i></a></li>
+    </div>
+    <p> &#169 Copyright 2022</p>
+</footer>
+</body>
+</html>

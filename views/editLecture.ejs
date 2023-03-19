@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Lecture</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/lecture.css' />
+</head>
+<body>
+<form action="" method="post" class="login-box" autocomplete="on" enctype="multipart/form-data">
+    <div class="title">
+        <h1>EDIT LECTURE</h1>
+    </div>
+    <div class="input-box">
+        <input type="text" name="code" required class="input" id="code">
+        <label for="code">Code</label>
+    </div>
+    <div class="input-box">
+        <input type="text" name="name" required class="input" id="name">
+        <label for="name">Name</label>
+    </div>
+    <div class="input-box">
+        <input type="time" name="time" required class="input" id="time">
+        <label for="time"></label>
+    </div>
+    <div class="input-box">
+        <input type="number" name="frequency" required class="input " id="frequency">
+        <label for="frequency">Frequency</label>
+    </div>
+    <div class="input-box">
+        <input type="file" name="cover" required class="input " id="cover">
+        <label for="cover"></label>
+    </div>
+    <button type="submit">Save</button>
+</form>
+</body>
